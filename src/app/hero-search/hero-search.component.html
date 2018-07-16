@@ -3,7 +3,7 @@
   <input matInput placeholder="search" id="search-box" (keyup)="search(searchBox.value)" />
   </mat-form-field-->
   <!--ul class="search-result">
-    <li *ngFor="let hero of heroes$ | async" >
+    <li *ngFor="let hero of hero-list$ | async" >
       <a routerLink="/detail/{{hero.id}}">
         {{hero.name}}
       </a>

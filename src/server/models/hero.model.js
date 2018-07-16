@@ -56,9 +56,9 @@ HeroSchema.statics = {
   },
 
   /**
-   * List heroes in descending order of 'createdAt' timestamp.
-   * @param {number} skip - Number of heroes to be skipped.
-   * @param {number} limit - Limit number of heroes to be returned.
+   * List hero-list in descending order of 'createdAt' timestamp.
+   * @param {number} skip - Number of hero-list to be skipped.
+   * @param {number} limit - Limit number of hero-list to be returned.
    * @returns {Promise<Hero[]>}
    */
   list({ skip = 0, limit = 50, name } = {}) {

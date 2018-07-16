@@ -18,7 +18,7 @@ export class HeroService {
     return this.http.get<Hero[]>(url);
   }
 
-  /** GET heroes from the server */
+  /** GET hero-list from the server */
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Object[]>(this.heroesUrl)
       .pipe<Hero[]>(

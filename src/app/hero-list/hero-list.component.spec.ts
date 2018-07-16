@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeroesComponent } from './heroes.component';
+import { HeroListComponent } from './hero-list.component';
 import { MatDividerModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatListModule, MatToolbarModule} from '@angular/material';
 import { AppRoutingModule } from '../app-routing.module';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
@@ -10,20 +10,18 @@ import {RouterModule} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {HeroService} from '../hero.service';
 
-@Component({selector:'app-'});
-
-describe('HeroesComponent', () => {
-  let component: HeroesComponent;
-  let fixture: ComponentFixture<HeroesComponent>;
+describe('HeroListComponent', () => {
+  let component: HeroListComponent;
+  let fixture: ComponentFixture<HeroListComponent>;
 
 
   beforeEach(async(() => {
-    const getHeroes = jasmine.createSpy('getHeroes', () => {return of({})});
+    const getHeroes = jasmine.createSpy('getHeroes', () => of({}));
     const heroService = {getHeroes: getHeroes};
 
     TestBed.configureTestingModule({
       declarations: [
-        HeroesComponent,
+        HeroListComponent,
         HeroDetailComponent
       ],
       imports: [
@@ -44,7 +42,7 @@ describe('HeroesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeroesComponent);
+    fixture = TestBed.createComponent(HeroListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
