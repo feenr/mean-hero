@@ -9,6 +9,6 @@ router.get('/health-check', (req, res) =>{
     res.send('OK')
   }
 );
-router.use('/hero-list', heroesRoutes);
+router.use('/heroes', heroesRoutes);
 
 export default router;
