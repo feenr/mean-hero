@@ -4,7 +4,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth/auth.guard';
-import {CallbackComponent} from './callback.component';
+import {CallbackComponent} from './auth/callback.component';
 
 
 const routes: Routes = [

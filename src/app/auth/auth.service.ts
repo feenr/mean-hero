@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as auth0 from 'auth0-js';
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -99,7 +99,7 @@ export class AuthService {
     localStorage.removeItem('expires_at');
     localStorage.removeItem('user_profile');
     this.auth0.logout({
-      returnTo: 'http://localhost:4200',
+      returnTo: environment.hostname,
       clientID: environment.auth.clientID
     });
   }

@@ -2,6 +2,7 @@ import express from 'express';
 import validate from 'express-validation';
 import paramValidation from '../config/param-validation';
 import heroesCtrl from '../controllers/heroes.controller';
+import config from '../config/config';
 
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
@@ -12,11 +13,10 @@ const authCheck = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: "https://feenr.auth0.com/.well-known/jwks.json"
+    jwksUri: config.auth.jwksUri
   }),
-  // This is the identifier we set when we created the API
-  audience: 'http://localhost:3001',
-  issuer: "https://feenr.auth0.com/", // e.g., you.auth0.com
+  audience: config.auth.audience,
+  issuer: config.auth.issuer,
   algorithms: ['RS256']
 });
 

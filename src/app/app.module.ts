@@ -25,7 +25,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { AuthService } from './auth/auth.service';
-import { CallbackComponent } from './callback.component';
+import { CallbackComponent } from './auth/callback.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({

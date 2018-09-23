@@ -5,13 +5,14 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {AuthService} from './auth/auth.service';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
   constructor(private http: HttpClient, private messageService: MessageService, private authService: AuthService) {}
-  private heroesUrl = 'http://localhost:4040/api/heroes';  // URL to web api
+  private heroesUrl = environment.serviceUri + '/api/heroes';  // URL to web api
 
   /** GET hero by id. Return `undefined` when id not found */
   getHeroNo404<Data>(id: number): Observable<{} | Hero> {

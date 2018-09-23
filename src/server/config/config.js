@@ -22,7 +22,13 @@ const envVarsSchema = Joi.object({
     .description('Mongo DB host url')
     .default('mongodb://localhost:27017/mean'),
   MONGO_PORT: Joi.number()
-    .default(27017)
+    .default(27017),
+  AUTH_AUDIENCE: Joi.string()
+    .default('http://localhost:3001'),
+  AUTH_ISSUER: Joi.string()
+    .default('https://feenr.auth0.com/'),
+  AUTH_JWKS_URI: Joi.string()
+    .default('https://feenr.auth0.com/.well-known/jwks.json'),
 }).unknown()
   .required();
 
@@ -37,10 +43,14 @@ const config = {
   port: envVars.SERVER_PORT,
   mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,
+  auth : {
+    issuer: envVars.AUTH_ISSUER,
+    audience: envVars.AUTH_AUDIENCE,
+    jwksUri: envVars.AUTH_JWKS_URI
+  },
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
   }
 };
-console.log(config.mongo.MONGO_HOST);
 export default config;
