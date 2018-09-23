@@ -33,7 +33,6 @@ export class AuthService {
     } else {
       this.authenticated = true;
     }
-    debugger;
   }
 
   login() {

@@ -9,6 +9,8 @@
 
     </label>
   </div>
-  <button mat-raised-button color="primary" (click)="goBack()">go back</button>
-  <button *ngIf="authService.isLoggedIn" mat-raised-button color="primary" (click)="save()">save</button>
+
+    <button mat-raised-button color="primary" (click)="goBack()">go back</button>
+    <button *ngIf="authService.isLoggedIn" mat-raised-button color="primary" (click)="save()">save</button>
+
 </div>

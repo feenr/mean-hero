@@ -64,3 +64,14 @@ h4 {
 mat-grid-tile h2 {
   color: white;
 }
+
+.hero-dashboard-list-item {
+  width: 260px;
+  margin: 20px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+}
+.hero-dashboard-list-item mat-card-title {
+  color: white;
+}

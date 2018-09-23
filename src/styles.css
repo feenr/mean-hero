@@ -31,7 +31,12 @@ button {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  margin-right: 8px;
 }
+button.mat-raised-button {
+  margin-right: 8px;
+}
+
 button:hover {
   background-color: #cfd8dc;
 }
