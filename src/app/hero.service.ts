@@ -4,12 +4,13 @@ import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {AuthService} from './auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-  constructor(private http: HttpClient, private messageService: MessageService) {}
+  constructor(private http: HttpClient, private messageService: MessageService, private authService: AuthService) {}
   private heroesUrl = 'http://localhost:4040/api/heroes';  // URL to web api
 
   /** GET hero by id. Return `undefined` when id not found */
@@ -20,7 +21,9 @@ export class HeroService {
 
   /** GET hero-list from the server */
   getHeroes (): Observable<Hero[]> {
-    return this.http.get<Object[]>(this.heroesUrl)
+    return this.http.get<Object[]>(this.heroesUrl, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
       .pipe<Hero[]>(
         map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'])))
       );
@@ -36,7 +39,9 @@ export class HeroService {
 
   deleteHero(hero: Hero): Observable<Hero> {
     this.messageService.add(`HeroService: Deleting hero ${hero.id}`);
-    return this.http.delete<Object>(this.heroesUrl + '/' + hero.id)
+    return this.http.delete<Object>(this.heroesUrl + '/' + hero.id, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
       .pipe<Hero>(
         map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
       );
@@ -44,7 +49,9 @@ export class HeroService {
 
   addHero(hero: Hero): Observable<Hero> {
     this.messageService.add(`HeroService: Creating hero ${hero.name}`);
-    return this.http.post<Object>(this.heroesUrl, hero)
+    return this.http.post<Object>(this.heroesUrl, hero, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
       .pipe<Hero>(
         map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
       );
@@ -58,7 +65,9 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Observable<Hero> {
-    return this.http.put<Object>(this.heroesUrl + '/' +  hero.id, hero)
+    return this.http.put<Object>(this.heroesUrl + '/' +  hero.id, hero, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
       .pipe<Hero>(
         map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
       );

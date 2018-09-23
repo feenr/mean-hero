@@ -4,9 +4,11 @@
   <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
+      <input *ngIf="authService.isLoggedIn" [(ngModel)]="hero.name" placeholder="name"/>
+      <span *ngIf="!authService.isLoggedIn" placeholder="name">{{hero.name}}</span>
+
     </label>
   </div>
   <button mat-raised-button color="primary" (click)="goBack()">go back</button>
-  <button mat-raised-button color="primary" (click)="save()">save</button>
+  <button *ngIf="authService.isLoggedIn" mat-raised-button color="primary" (click)="save()">save</button>
 </div>

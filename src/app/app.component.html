@@ -7,7 +7,7 @@
 
     <app-hero-search></app-hero-search>
         <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</a>
-        <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Log Out</a>
+        <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">(Log Out)</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="app-content">
