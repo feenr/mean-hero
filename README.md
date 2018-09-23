@@ -58,3 +58,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Configuration can be updated in `.env`
 # Docker
 - To start a dockerized version of your application, use `docker-compose up`
+# Auth0
+- This project uses [Auth0](https://auth0.com/) for authentication.
