@@ -1,12 +1,23 @@
 <h3>Top Heroes</h3>
 
-<mat-grid-list cols="4" rowHeight="100px">
+<!--mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile routerLink="/detail/{{hero.id}}"
     *ngFor="let hero of heroes"
     [colspan]="1"
     [rowspan]="1"
     [style.background]="hero.getColor()">
 
+
         <h2>{{hero.name}}</h2>
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list-->
+
+
+<a ngClass="hero-dashboard-list-item" routerLink="/detail/{{hero.id}}"
+               *ngFor="let hero of heroes"
+               [style.background]="hero.getColor()">
+  <mat-card [style.background]="hero.getColor()">
+    <mat-card-title>{{hero.name}}</mat-card-title>
+  </mat-card>
+
+</a>

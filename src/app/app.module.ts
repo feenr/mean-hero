@@ -4,7 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatToolbarModule, MatGridListModule, MatInputModule, MatListModule, MatIconModule, MatDividerModule, MatAutocompleteModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatToolbarModule,
+  MatGridListModule,
+  MatInputModule,
+  MatListModule,
+  MatIconModule,
+  MatDividerModule,
+  MatAutocompleteModule,
+  MatCardModule
+} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -13,6 +23,10 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+
+import { AuthService } from './auth/auth.service';
+import { CallbackComponent } from './auth/callback.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
@@ -28,6 +42,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     MatIconModule,
     MatDividerModule,
     MatAutocompleteModule,
+    MatCardModule,
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
@@ -37,7 +52,12 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroListComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    CallbackComponent,
+    ToolbarComponent
+  ],
+  providers: [
+    AuthService,
   ],
   bootstrap: [ AppComponent ]
 })
