@@ -14,6 +14,9 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 
+import { AuthService } from './auth/auth.service';
+import { CallbackComponent } from './callback.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,7 +40,11 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroListComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    CallbackComponent
+  ],
+  providers: [
+    AuthService,
   ],
   bootstrap: [ AppComponent ]
 })

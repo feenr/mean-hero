@@ -1,4 +1,6 @@
 import express from 'express';
+import jwt from 'express-jwt';
+import jwks from 'jwks-rsa';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compress from 'compression';
@@ -27,6 +29,24 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
+
+// We are going to implement a JWT middleware that will ensure the validity of our token. We'll require each protected route to have a valid access_token sent in the Authorization header
+const authCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: "https://feenr.auth0.com/.well-known/jwks.json"
+  }),
+  // This is the identifier we set when we created the API
+  audience: 'http://localhost:3001',
+  issuer: "https://feenr.auth0.com/", // e.g., you.auth0.com
+  algorithms: ['RS256']
+});
+
+app.use('/api/private', authCheck, function (req, res) {
+  res.send('Secured Resource');
+});
 
 app.use('/api', routes);
 
