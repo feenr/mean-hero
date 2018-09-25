@@ -4,14 +4,6 @@ mat-toolbar {
   left: 0px;
 }
 
-app-hero-search {
-
-}
-
-app-profile-menu {
-
-}
-
-app-navigation-menu {
-
+.mat-elevation-z6 {
+  z-index: 6;
 }
