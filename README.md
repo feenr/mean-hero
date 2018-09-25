@@ -20,6 +20,7 @@ Or with Docker
 // Navigate to http://localhost:4200/
 ```
 
+
 # Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
@@ -60,3 +61,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - To start a dockerized version of your application, use `docker-compose up`
 # Auth0
 - This project uses [Auth0](https://auth0.com/) for authentication.
+
+# The sample app
+### Dashboard
+![image](https://user-images.githubusercontent.com/83574/46040447-510ed780-c0de-11e8-98f7-5684a33130d5.png)
+### Hero list
+![image](https://user-images.githubusercontent.com/83574/46040451-5409c800-c0de-11e8-84e5-223bd580733e.png)
+### Update hero
+![image](https://user-images.githubusercontent.com/83574/46040459-5704b880-c0de-11e8-8922-01206637a7ae.png)
