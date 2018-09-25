@@ -1,0 +1,6 @@
+<button mat-button *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</button>
+<button *ngIf="authService.isLoggedIn" mat-button [matMenuTriggerFor]="menu">{{username}}</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Profile</button>
+  <button mat-menu-item (click)="authService.logout()">Log out</button>
+</mat-menu>

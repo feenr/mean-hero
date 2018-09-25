@@ -26,7 +26,27 @@ export class HeroService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
     })
       .pipe<Hero[]>(
-        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'])))
+        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'], hero['rating'], hero['createdAt'], hero['updatedAt'])))
+      );
+  }
+
+  /** GET hero-list from the server */
+  getHeroesCreateDateDesc (): Observable<Hero[]> {
+    return this.http.get<Object[]>(this.heroesUrl + '?sortBy=createdAt:desc', {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
+      .pipe<Hero[]>(
+        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'], hero['rating'], hero['createdAt'], hero['updatedAt'])))
+      );
+  }
+
+  /** GET hero-list from the server */
+  getHeroesRatingDesc (): Observable<Hero[]> {
+    return this.http.get<Object[]>(this.heroesUrl + '?sortBy=rating:desc', {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
+    })
+      .pipe<Hero[]>(
+        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'], hero['rating'], hero['createdAt'], hero['updatedAt'])))
       );
   }
 
@@ -34,7 +54,7 @@ export class HeroService {
     this.messageService.add(`HeroService: looking up hero ${id}`);
     return this.http.get<Object>(this.heroesUrl + '/' + id)
       .pipe<Hero>(
-        map<Object, Hero>(hero => new Hero(hero['_id'], hero['name']))
+        map<Object, Hero>(hero => new Hero(hero['_id'], hero['name'], hero['rating'], hero['createdAt'], hero['updatedAt']))
       );
   }
 
@@ -44,7 +64,7 @@ export class HeroService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
     })
       .pipe<Hero>(
-        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
+        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name'], retHero['rating'], retHero['createdAt'], retHero['updatedAt']))
       );
   }
 
@@ -54,14 +74,15 @@ export class HeroService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
     })
       .pipe<Hero>(
-        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
+        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name'], retHero['rating'], retHero['createdAt'], retHero['updatedAt']))
       );
   }
 
   searchHeroes(text: string): Observable<Hero[]> {
     return this.http.get<Object[]>(this.heroesUrl + '?name=' + text)
       .pipe<Hero[]>(
-        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'])))
+        map<Object[], Hero[]>(heroes => heroes.map<Hero>(hero => new Hero(hero['_id'], hero['name'], hero['rating'],
+          hero['createdAt'], hero['updatedAt'])))
       );
   }
 
@@ -70,7 +91,8 @@ export class HeroService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${this.authService.accessToken}`)
     })
       .pipe<Hero>(
-        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name']))
+        map<Object, Hero>(retHero => new Hero(retHero['_id'], retHero['name'], retHero['rating'], retHero['createdAt'],
+          retHero['updatedAt']))
       );
   }
 

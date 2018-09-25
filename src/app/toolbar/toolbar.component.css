@@ -1,4 +1,17 @@
 mat-toolbar {
-  #position: fixed;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+app-hero-search {
+
+}
+
+app-profile-menu {
+
+}
+
+app-navigation-menu {
 
 }

@@ -27,7 +27,7 @@ export class AuthService {
     this.accessToken = localStorage.getItem('access_token');
     this.idToken = localStorage.getItem('id_token');
     this.expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
-    this.userProfile = localStorage.getItem('user_profile');
+    this.userProfile = JSON.parse(localStorage.getItem('user_profile'));
     if (Date.now() > this.expiresAt) {
       this.getAccessToken();
     } else {
@@ -87,7 +87,7 @@ export class AuthService {
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('user_profile', profile);
+    localStorage.setItem('user_profile', JSON.stringify(profile));
   }
 
   logout() {

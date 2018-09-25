@@ -13,7 +13,7 @@ import {
   MatIconModule,
   MatDividerModule,
   MatAutocompleteModule,
-  MatCardModule
+  MatCardModule, MatMenuModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,6 +27,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './auth/callback.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
 
 @NgModule({
   imports: [
@@ -40,6 +42,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MatInputModule,
     MatListModule,
     MatIconModule,
+    MatMenuModule,
     MatDividerModule,
     MatAutocompleteModule,
     MatCardModule,
@@ -54,7 +57,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     MessagesComponent,
     HeroSearchComponent,
     CallbackComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ProfileMenuComponent,
+    NavigationMenuComponent
   ],
   providers: [
     AuthService,

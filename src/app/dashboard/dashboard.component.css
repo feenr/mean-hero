@@ -75,3 +75,7 @@ mat-grid-tile h2 {
 .hero-dashboard-list-item mat-card-title {
   color: white;
 }
+.hero-dashboard-list{
+  display: flex;
+  justify-content: center;
+}

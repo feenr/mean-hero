@@ -9,16 +9,21 @@ import { HeroService } from '../hero.service';
 })
 export class DashboardComponent implements OnInit {
 
-  heroes: Hero[] = [];
-
+  topHeroes: Hero[] = [];
+  newHeroes: Hero[] = [];
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getTopHeroes();
+    this.getNewHeroes();
   }
 
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(0, 4));
+  getTopHeroes(): void {
+    this.heroService.getHeroesRatingDesc()
+      .subscribe(heroes => this.topHeroes = heroes.slice(0, 4));
+  }
+  getNewHeroes(): void {
+    this.heroService.getHeroesCreateDateDesc()
+      .subscribe(heroes => this.newHeroes = heroes.slice(0, 4));
   }
 }

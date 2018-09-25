@@ -18,6 +18,10 @@ const HeroSchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  rating: {
+    type: Number,
+    default: 0
   }
 });
 
@@ -61,21 +65,21 @@ HeroSchema.statics = {
    * @param {number} limit - Limit number of hero-list to be returned.
    * @returns {Promise<Hero[]>}
    */
-  list({ skip = 0, limit = 50, name } = {}) {
+  list({ skip = 0, limit = 50, name, sortByArgs} = {}) {
+    //sortParams = sortParams || {createdAt: -1};
     if(name){
       return this.find({"name": { $regex: ".*" + name + ".*"}})
-        .sort({ createdAt: -1 })
+        .sort(sortByArgs)
         .skip(+skip)
         .limit(+limit)
         .exec();
     } else {
       return this.find()
-        .sort({ createdAt: -1 })
+        .sort(sortByArgs)
         .skip(+skip)
         .limit(+limit)
         .exec();
     }
-
   },
 };
 

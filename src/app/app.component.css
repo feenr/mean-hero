@@ -19,6 +19,7 @@ app-hero-search{
 
 .app-content{
   margin: 2em;
+  margin-top: 100px;
 }
 
 .header{
@@ -44,5 +45,6 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+
 
 

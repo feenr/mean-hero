@@ -26,15 +26,28 @@ function create(req, res, next) {
 function update(req, res, next) {
   const hero = req.hero;
   hero.username = req.body.name;
+  hero.rating = req.body.rating;
   hero.save()
     .then(savedHero => res.json(savedHero))
     .catch(e => next(e));
 }
 
 function list(req, res, next) {
-  const { limit = 50, skip = 0, name } = req.query;
+  const { limit = 50, skip = 0, name, sortBy } = req.query;
 
-  Hero.list({ limit, skip, name })
+  let sortByArgs;
+  if(sortBy){
+    let sortByProp = sortBy.split(":")[0];
+    let sortByAsc;
+    sortByArgs = {};
+    if(sortBy.split(":")[1] === 'asc'){
+      sortByAsc = 1;
+    } else {
+      sortByAsc = -1;
+    }
+    sortByArgs[sortByProp] = sortByAsc;
+  }
+  Hero.list({ limit, skip, name, sortByArgs})
     .then(heroes => res.json(heroes))
     .catch(e => next(e));
 }

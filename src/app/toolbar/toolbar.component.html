@@ -1,9 +1,6 @@
 <mat-toolbar color="primary" [ngClass]="'mat-elevation-z6'">
-    <a mat-button routerLink="/dashboard">Dashboard</a>
-    <a mat-button routerLink="/heroes">Heroes</a>
-    <span class="fill-remaining-space"></span>
-
-    <app-hero-search></app-hero-search>
-    <a mat-button *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</a>
-    <a mat-button *ngIf="authService.isLoggedIn" (click)="authService.logout()">Log Out</a>
+  <app-navigation-menu></app-navigation-menu>
+  <span class="fill-remaining-space"></span>
+  <app-hero-search></app-hero-search>
+  <app-profile-menu></app-profile-menu>
 </mat-toolbar>
