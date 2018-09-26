@@ -6,27 +6,19 @@ import APIError from '../helpers/APIError';
 /**x
  * Hero Schema
  */
-const HeroSchema = new mongoose.Schema({
-  name: {
+const VoteSchema = new mongoose.Schema({
+  voterID: {
     type: String,
     required: true
   },
-  id: String,
-  createdAt: {
+  HeroID: {
     type: Date,
     default: Date.now
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  },
-  rating: {
+  vote: {
     type: Number,
     default: 0
-  },
-  description: String,
-  role: String
-
+  }
 });
 
 /**
@@ -39,24 +31,24 @@ const HeroSchema = new mongoose.Schema({
 /**
  * Methods
  */
-HeroSchema.method({
+VoteSchema.method({
 });
 
 /**
  * Statics
  */
-HeroSchema.statics = {
+VoteSchema.statics = {
   /**
    * Get hero
    * @param {ObjectId} id - The objectId of hero.
    * @returns {Promise<Hero, APIError>}
    */
-  get(id) {
-    return this.findById(id)
+  get(voterID, heroID) {
+    return this.find({voterID:voterID, heroId:heroID})
       .exec()
-      .then((hero) => {
-        if (hero) {
-          return hero;
+      .then((vote) => {
+        if (vote) {
+          return vote;
         }
         const err = new APIError('No such hero exists!', httpStatus.NOT_FOUND);
         return Promise.reject(err);
@@ -90,4 +82,4 @@ HeroSchema.statics = {
 /**
  * @typedef Hero
  */
-export default mongoose.model('heroes', HeroSchema);
+export default mongoose.model('votes', VoteSchema);

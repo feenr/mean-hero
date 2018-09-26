@@ -18,8 +18,9 @@ import appRoot from 'app-root-path';
 const app = express();
 
 // parse body params and attache them to req.body
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '2mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(cookieParser());
 app.use(compress());
 app.use(methodOverride());
@@ -29,6 +30,8 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
+
+
 
 // We are going to implement a JWT middleware that will ensure the validity of our token. We'll require each protected route to have a valid access_token sent in the Authorization header
 const authCheck = jwt({
