@@ -25,8 +25,10 @@ function create(req, res, next) {
 
 function update(req, res, next) {
   const hero = req.hero;
-  hero.username = req.body.name;
+  hero.name = req.body.name;
   hero.rating = req.body.rating;
+  hero.description = req.body.description;
+  hero.role = req.body.role;
   hero.save()
     .then(savedHero => res.json(savedHero))
     .catch(e => next(e));
@@ -58,4 +60,18 @@ function remove(req, res, next) {
     .catch(e => next(e));
 }
 
-export default { load, get, create, update, list, remove };
+function bulkImport(req, res, next) {
+  for(let i in req.body){
+    let heroJSON = req.body[i];
+    let hero = new Hero({
+      name: heroJSON.name,
+      rating : heroJSON.rating,
+      description : heroJSON.description,
+      role : heroJSON.roles[0]
+    });
+    hero.save()
+  }
+  res.json({"status":"success"})
+}
+
+export default { load, get, create, update, list, remove, bulkImport };
