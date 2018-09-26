@@ -69,3 +69,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![image](https://user-images.githubusercontent.com/83574/46040451-5409c800-c0de-11e8-84e5-223bd580733e.png)
 ### Update hero
 ![image](https://user-images.githubusercontent.com/83574/46040459-5704b880-c0de-11e8-8922-01206637a7ae.png)
+### Heroes of the storm data
+An export of hero data from the game Heroes of the Storm can be generated using [this project](https://github.com/koliva8245/HeroesDataParser). The output JSON from that project can be used as the body for the service ```localhost:4040/heroes/bulkimport```
