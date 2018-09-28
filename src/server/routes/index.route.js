@@ -1,5 +1,6 @@
 import express from 'express';
 import heroesRoutes from './heroes.route';
+import votesRoutes from './votes.route';
 
 const router = express.Router(); // eslint-disable-line new-cap
 
@@ -10,5 +11,6 @@ router.get('/health-check', (req, res) =>{
   }
 );
 router.use('/heroes', heroesRoutes);
+router.use('/votes', votesRoutes);
 
 export default router;
