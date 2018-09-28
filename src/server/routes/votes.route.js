@@ -4,6 +4,8 @@ import config from '../config/config';
 
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
+import paramValidation from "../config/param-validation";
+import validate from "express-validation";
 const router = express.Router();
 
 const authCheck = jwt({
@@ -21,6 +23,6 @@ const authCheck = jwt({
 
 router.route('/')
   /** POST /api/heroes - Create new hero */
-  .post(votesCtrl.post);
+  .post(validate(paramValidation.updateVote), votesCtrl.post);
 
 export default router;
