@@ -13,10 +13,6 @@ nav {
   float: left;
 }
 
-app-hero-search{
-  float:right;
-}
-
 .app-content{
   margin: 2em;
   margin-top: 100px;
@@ -46,5 +42,6 @@ nav a.active {
   color: #039be5;
 }
 
-
-
+app-messages {
+  background-color: white;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import {AuthService} from '../auth/auth.service';
+import {VotesService} from '../votes.service';
 
 @Component({
   selector: 'app-heroes',
@@ -13,7 +14,7 @@ export class HeroListComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
-  constructor(private heroService: HeroService, protected authService: AuthService) { }
+  constructor(private heroService: HeroService, protected authService: AuthService, private voteService: VotesService) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -42,4 +43,27 @@ export class HeroListComponent implements OnInit {
     this.heroService.deleteHero(hero).subscribe();
   }
 
+  voteUp(hero: Hero): void {
+    this.voteService.performVote(hero.id, this.authService.getProfile().given_name, 1);
+    hero.rating++;
+    this.sortHeroes();
+  }
+
+  voteDown(hero: Hero): void {
+    this.voteService.performVote(hero.id, this.authService.getProfile().given_name, -1);
+    hero.rating--;
+    this.sortHeroes();
+  }
+
+  sortHeroes(): void {
+    this.heroes.sort((hero1, hero2) => {
+      if (hero1.rating > hero2.rating) {
+        return 1;
+      }
+      if (hero1.rating < hero2.rating) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 }

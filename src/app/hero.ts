@@ -4,6 +4,7 @@ export class Hero {
   rating: number;
   createdAt: Date;
   updatedAt: Date;
+  voteStatus: number;
 
   constructor(id: string, name: string, rating: number, createdAt: Date, updatedAt: Date) {
     this.id = id;
@@ -11,6 +12,7 @@ export class Hero {
     this.rating = rating;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.voteStatus = 0;
   }
 
   getStyle(): number {
@@ -20,7 +22,7 @@ export class Hero {
   }
 
   getColor(): string {
-    switch(this.getStyle()) {
+    switch (this.getStyle()) {
       case 0:
         return '#cf8acf';
       case 1:

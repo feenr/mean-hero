@@ -10,8 +10,8 @@
 <mat-list>
   <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
     <span *ngIf="authService.isLoggedIn">
-      <mat-icon color="primary">arrow_upward</mat-icon>
-      <mat-icon color="accent">arrow_downward</mat-icon>
+      <mat-icon (click)="voteUp(hero)">arrow_upward</mat-icon>
+      <mat-icon (click)="voteDown(hero)">arrow_downward</mat-icon>
     </span>
       {{"&nbsp;"+hero.name}}
     <span class="fill-remaining-space"></span>

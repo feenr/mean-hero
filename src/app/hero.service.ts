@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {AuthService} from './auth/auth.service';
+import { AuthService } from './auth/auth.service';
 import { environment } from '../environments/environment';
 
 @Injectable({
