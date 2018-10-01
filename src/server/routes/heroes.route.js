@@ -27,7 +27,8 @@ router.route('/')
 
   /** POST /api/heroes - Create new hero */
   .post(authCheck, validate(paramValidation.createHero), heroesCtrl.create);
-
+router.route('/bulkimport')
+  .post(heroesCtrl.bulkImport);
 router.route('/:heroId')
   /** GET /api/heroes/:heroId - Get hero */
   .get(heroesCtrl.get)

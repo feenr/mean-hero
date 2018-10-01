@@ -29,3 +29,9 @@ button:disabled {
   cursor: auto;
 }
 
+.full-width {
+  width: 100%;
+}
+.short-width {
+  width: 30%;
+}

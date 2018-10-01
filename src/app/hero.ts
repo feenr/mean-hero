@@ -1,18 +1,22 @@
 export class Hero {
+  role: String;
   id: string;
   name: string;
   rating: number;
   createdAt: Date;
   updatedAt: Date;
   voteStatus: number;
+  description: String;
 
-  constructor(id: string, name: string, rating: number, createdAt: Date, updatedAt: Date) {
+  constructor(id: string, name: string, rating: number, createdAt: Date, updatedAt: Date, description: String, role: String) {
     this.id = id;
     this.name = name;
     this.rating = rating;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.voteStatus = 0;
+    this.description = description;
+    this.role = role;
   }
 
   getStyle(): number {

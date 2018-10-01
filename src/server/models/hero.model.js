@@ -11,6 +11,7 @@ const HeroSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  id: String,
   createdAt: {
     type: Date,
     default: Date.now
@@ -22,7 +23,10 @@ const HeroSchema = new mongoose.Schema({
   rating: {
     type: Number,
     default: 0
-  }
+  },
+  description: String,
+  role: String
+
 });
 
 /**

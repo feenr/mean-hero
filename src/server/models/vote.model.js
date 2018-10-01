@@ -43,12 +43,13 @@ VoteSchema.statics = {
    * @param {ObjectId} id - The objectId of hero.
    * @returns {Promise<Hero, APIError>}
    */
-  get(id) {
-    return this.findById(id)
+
+  get(voterID, heroID) {
+    return this.find({voterID:voterID, heroId:heroID})
       .exec()
-      .then((hero) => {
-        if (hero) {
-          return hero;
+      .then((vote) => {
+        if (vote) {
+          return vote;
         }
         const err = new APIError('No such hero exists!', httpStatus.NOT_FOUND);
         return Promise.reject(err);
