@@ -18,7 +18,7 @@ const envVarsSchema = Joi.object({
   JWT_SECRET: Joi.string()
     .description('JWT Secret required to sign')
     .default('0a6b944d-d2fb-46fc-a85e-0295c986cd9f'),
-  MONGO_URI: Joi.string()
+  MONGODB_URI: Joi.string()
     .description('Mongo DB host url')
     .default('mongodb://localhost:27017/mean'),
   AUTH_AUDIENCE: Joi.string()
@@ -47,7 +47,7 @@ const config = {
     jwksUri: envVars.AUTH_JWKS_URI
   },
   mongo: {
-    host: envVars.MONGO_URI,
+    host: envVars.MONGODB_URI,
   }
 };
 export default config;
