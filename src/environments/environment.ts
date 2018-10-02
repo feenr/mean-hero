@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   serviceUri: 'http://mean-hero.herokuapp.com',
-  hostname: 'http://localhost:4200',
+  hostname: 'http://mean-hero.herokuapp.com',
   auth: {
     clientID: 'cJ8exYcsUTDWpSP3e3d54IVrrkEPpAWb',
     domain: 'feenr.auth0.com', // e.g., you.auth0.com
