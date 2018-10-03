@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "heroku-prebuild":"node scripts/prebuild.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "start-express": "node src/server-start.js",
     "start-ng": "ng serve --host 0.0.0.0",
     "postinstall": "npm run build",

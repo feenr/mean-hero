@@ -13,7 +13,7 @@ export class HeroListComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 
-  constructor(private heroService: HeroService, protected authService: AuthService) { }
+  constructor(private heroService: HeroService, public authService: AuthService) { }
 
   ngOnInit() {
     this.getHeroes();

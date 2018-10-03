@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
-  serviceUri: 'https://mean-hero.herokuapp.com',
+  serviceUri: 'http://localhost:4040',
+  hostName: 'http://localhost:4200',
   auth: {
     clientID: 'cJ8exYcsUTDWpSP3e3d54IVrrkEPpAWb',
     domain: 'feenr.auth0.com', // e.g., you.auth0.com
     audience: 'http://localhost:3001', // e.g., http://localhost:3001
     issuer: 'https://feenr.auth0.com/',
-    redirect: 'https://mean-hero.herokuapp.com/callback',
+    redirect: 'http://localhost:4200/callback',
     scope: 'openid profile email',
     jwksUri: 'https://feenr.auth0.com/.well-known/jwks.json',
     algorithms: ['RS256']

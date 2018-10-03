@@ -5,6 +5,7 @@
 export const environment = {
   production: true,
   serviceUri: '<%= HOST_NAME %>',
+  hostName: '<%= HOST_NAME %>',
   auth: {
     clientID: '<%= AUTH_CLIENT_ID %>',
     domain: '<%= AUTH_DOMAIN %>', // e.g., you.auth0.com

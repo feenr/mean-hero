@@ -99,7 +99,7 @@ export class AuthService {
     localStorage.removeItem('expires_at');
     localStorage.removeItem('user_profile');
     this.auth0.logout({
-      returnTo: environment.serviceUri,
+      returnTo: environment.hostName,
       clientID: environment.auth.clientID
     });
   }
