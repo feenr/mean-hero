@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "heroku-prebuild":"node scripts/prebuild.js",
     "build": "ng build",
     "start-express": "node src/server-start.js",
     "start-ng": "ng serve --host 0.0.0.0",
