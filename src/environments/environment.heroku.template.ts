@@ -3,16 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  serviceUri: 'https://mean-hero.herokuapp.com',
+  production: true,
+  serviceUri: '<%= HOST_NAME %>',
   auth: {
-    clientID: 'cJ8exYcsUTDWpSP3e3d54IVrrkEPpAWb',
-    domain: 'feenr.auth0.com', // e.g., you.auth0.com
-    audience: 'http://localhost:3001', // e.g., http://localhost:3001
-    issuer: 'https://feenr.auth0.com/',
-    redirect: 'https://mean-hero.herokuapp.com/callback',
+    clientID: '<%= AUTH_CLIENT_ID %>',
+    domain: '<%= AUTH_DOMAIN %>', // e.g., you.auth0.com
+    audience: '<%= AUTH_AUDIENCE %>', // e.g., http://localhost:3001
+    issuer: '<%= AUTH_ISSUER %>',
+    redirect: '<%= HOST_NAME %>/callback',
     scope: 'openid profile email',
-    jwksUri: 'https://feenr.auth0.com/.well-known/jwks.json',
+    jwksUri: '<%= AUTH_JWKS_URI %>',
     algorithms: ['RS256']
   }
 };
