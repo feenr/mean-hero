@@ -12,7 +12,7 @@ Using angular dev server
 ```
 // Mongo db should be installed and started. 
 > npm install
-> npm start-express
+> npm start
 > npm start-ng
 // Navigate to http://localhost:4200/
 ```
