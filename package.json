@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "heroku-prebuild":"node scripts/prebuild.js",
     "build": "ng build",
+    "build-prod": "ng build --prod",
     "start-express": "node src/server-start.js",
     "start-ng": "ng serve --host 0.0.0.0",
-    "start": "concurrently \"npm run start-ng\" \"npm run start-express\"",
+    "postinstall": "npm run build",
+    "start": "npm run start-express",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -7,7 +7,7 @@ const envVarsSchema = Joi.object({
   NODE_ENV: Joi.string()
     .allow(['development', 'production', 'test', 'provision'])
     .default('development'),
-  SERVER_PORT: Joi.number()
+  PORT: Joi.number()
     .default(4040),
   MONGOOSE_DEBUG: Joi.boolean()
     .when('NODE_ENV', {
@@ -18,11 +18,9 @@ const envVarsSchema = Joi.object({
   JWT_SECRET: Joi.string()
     .description('JWT Secret required to sign')
     .default('0a6b944d-d2fb-46fc-a85e-0295c986cd9f'),
-  MONGO_HOST: Joi.string()
+  MONGODB_URI: Joi.string()
     .description('Mongo DB host url')
     .default('mongodb://localhost:27017/mean'),
-  MONGO_PORT: Joi.number()
-    .default(27017),
   AUTH_AUDIENCE: Joi.string()
     .default('http://localhost:3001'),
   AUTH_ISSUER: Joi.string()
@@ -40,7 +38,7 @@ if (error) {
 
 const config = {
   env: envVars.NODE_ENV,
-  port: envVars.SERVER_PORT,
+  port: envVars.PORT,
   mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,
   auth : {
@@ -49,8 +47,7 @@ const config = {
     jwksUri: envVars.AUTH_JWKS_URI
   },
   mongo: {
-    host: envVars.MONGO_HOST,
-    port: envVars.MONGO_PORT
+    host: envVars.MONGODB_URI,
   }
 };
 export default config;

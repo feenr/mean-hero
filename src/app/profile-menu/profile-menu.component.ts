@@ -9,7 +9,7 @@ import {AuthService} from '../auth/auth.service';
 export class ProfileMenuComponent implements OnInit {
   username: string;
 
-  constructor(protected authService: AuthService) {
+  constructor(public authService: AuthService) {
     if (authService.getProfile()) {
       this.username = authService.getProfile().given_name || '';
     }
