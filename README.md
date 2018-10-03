@@ -8,13 +8,22 @@ This project takes the result of the [Tour Of Heroes angular tutorial](https://a
 Much of the project design comes from [mean.io](https://github.com/linnovate/mean). However, it is using Angular version 6, and the latest version of all MEAN dependencies. The ability to use the ng-cli should make extending this boilerplate significantly easier.
 
 ## TL;DR
+Using angular dev server
 ```
 // Mongo db should be installed and started. 
 > npm install
 > npm start
 // Navigate to http://localhost:4200/
 ```
-Or with Docker
+Using an Express server with generated static content
+```
+// Mongo db should be installed and started. 
+> npm install
+> npm build
+> npm start-ng
+// Navigate to http://localhost:4200/
+```
+With Docker
 ```
 > docker-compose up
 // Navigate to http://localhost:4200/
