@@ -12,7 +12,8 @@ Using angular dev server
 ```
 // Mongo db should be installed and started. 
 > npm install
-> npm start
+> npm start-express
+> npm start-ng
 // Navigate to http://localhost:4200/
 ```
 Using an Express server with generated static content
@@ -20,9 +21,10 @@ Using an Express server with generated static content
 // Mongo db should be installed and started. 
 > npm install
 > npm build
-> npm start-ng
-// Navigate to http://localhost:4200/
+> npm start
+// Navigate to http://localhost:4040/
 ```
+
 With Docker
 ```
 > docker-compose up
