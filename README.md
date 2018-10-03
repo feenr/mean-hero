@@ -36,27 +36,15 @@ With Docker
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
-## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
@@ -72,7 +60,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - To start a dockerized version of your application, use `docker-compose up`
 # Auth0
 - This project uses [Auth0](https://auth0.com/) for authentication.
-
+# Heroku 
+- This project is configured to deploy on Heroku.
+- Latest version can be viewed at this URL https://mean-hero.herokuapp.com/heroes. This may take up to a minute to start up as the app server sleeps after 30 minutes of inactivity
 # The sample app
 ### Dashboard
 ![image](https://user-images.githubusercontent.com/83574/46040447-510ed780-c0de-11e8-98f7-5684a33130d5.png)
