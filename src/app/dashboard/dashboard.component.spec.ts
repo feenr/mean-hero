@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
-import {MatGridListModule} from '@angular/material';
-import {RouterModule} from '@angular/router';
+import {MatCardModule, MatGridListModule} from '@angular/material';
 import {HttpClient, HttpHandler} from '@angular/common/http';
+import {Component} from '@angular/core';
+import {RouterTestingModule} from '@angular/router/testing';
+
+
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -14,7 +17,8 @@ describe('DashboardComponent', () => {
       declarations: [ DashboardComponent ],
       imports: [
         MatGridListModule,
-        RouterModule
+        MatCardModule,
+        RouterTestingModule
       ],
       providers: [
         HttpClient,
