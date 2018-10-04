@@ -5,6 +5,9 @@ import {FormsModule} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 import {HeroService} from '../hero.service';
+import {MatFormFieldModule} from '@angular/material';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
@@ -14,12 +17,15 @@ describe('HeroDetailComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ HeroDetailComponent ],
       imports: [
-        FormsModule
+        FormsModule,
+        MatFormFieldModule,
+        RouterTestingModule,
+        HttpClientModule
       ],
       providers: [
-        {provide: ActivatedRoute, use: jasmine.createSpyObj('ActivatedRoute', ['.snapshot.paramMap.get'])},
-        {provide: Location, use: jasmine.createSpyObj('Location', ['.location.back'])},
-        {provide: HeroService, use: jasmine.createSpyObj('HeroService', ['.getHero'])}
+        // {provide: ActivatedRoute, use: jasmine.createSpyObj('ActivatedRoute', ['.snapshot.paramMap.get'])},
+        // {provide: Location, use: jasmine.createSpyObj('Location', ['.location.back'])},
+        // {provide: HeroService, use: jasmine.createSpyObj('HeroService', ['.getHero'])}
       ]
     })
     .compileComponents();
