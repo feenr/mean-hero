@@ -9,6 +9,8 @@ import {Component} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {HeroService} from '../hero.service';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('HeroListComponent', () => {
   let component: HeroListComponent;
@@ -32,10 +34,12 @@ describe('HeroListComponent', () => {
         MatToolbarModule,
         MatListModule,
         MatGridListModule,
-        FormsModule
+        FormsModule,
+        RouterTestingModule,
+        HttpClientModule
       ],
       providers: [
-        {provide: HeroService, useValue: heroService}
+        // {provide: HeroService, useValue: heroService}
       ]
     })
     .compileComponents();

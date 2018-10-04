@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Injectable} from '@angular/core';
 import {HeroService} from '../hero.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {RouterTestingModule} from '@angular/router/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ describe('HeroSearchComponent', () => {
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
       providers: [
         FormControl,
