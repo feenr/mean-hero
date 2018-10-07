@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/feenr/mean-hero.svg?branch=master)](https://travis-ci.com/feenr/mean-hero)
+
 # Mean Hero
 
 ## Overview
